@@ -1,0 +1,6 @@
+bower_components
+dist/*
+docs/*
+node_modules/*
+client/dist/*
+client/node_modules/*
