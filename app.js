@@ -30,45 +30,12 @@ app.get('/', function(req, res) {
     res.render('index.html');
 });
 
-var authRouter = require('./routes/auth')(router);
 var adminRouter = require('./routes/admin')(router);
-var calculateRouter = require('./routes/calculate')(router);
-var kerentananRouter = require('./routes/kerentanan')(router);
-var modelPerhitunganRouter = require('./routes/model_perhitungan')(router);
-var dataEksternalRouter = require('./routes/data_hitung_eksternal')(router);
 
-app.use('/api', authRouter);
 app.use('/api', adminRouter);
-app.use('/api', calculateRouter);
-app.use('/api', kerentananRouter);
-app.use('/api', modelPerhitunganRouter);
-app.use('/api', dataEksternalRouter);
 
 
 var sqlite3 = require('sqlite3').verbose();
-//var db = new sqlite3.Database(':memory:');
-// var db = new sqlite3.Database('sync.db');
-// var column = ["create table if not exists transactions(", 
-//     "buyId text, sellId text, buyDate date, sellDate date, productId text,",
-//     "productName text, buyPrice number, sellPrice number)"].join(" ");
-// db.run(column);
-// db.close();
-
-// db.serialize(function() {
-//     db.run("CREATE TABLE lorem (info TEXT)");
-
-//     var stmt = db.prepare("INSERT INTO lorem VALUES (?)");
-//     for (var i = 0; i < 10; i++) {
-//         stmt.run("Ipsum " + i);
-//     }
-//     stmt.finalize();
-
-//     db.each("SELECT rowid AS id, info FROM lorem", function(err, row) {
-//         console.log(row.id + ": " + row.info);
-//     });
-// });
-
-
 
 server.listen(config.port);
 
